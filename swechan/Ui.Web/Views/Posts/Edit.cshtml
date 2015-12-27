@@ -1,0 +1,44 @@
+﻿@model Model.Post
+
+@{
+    ViewBag.Title = "Edit Post";
+}
+
+<h2>@Model.Thread.Title - Edit - @Model.PostId</h2>
+
+@using (Html.BeginForm("EditComplete", "Posts", new { postId = Model.PostId }, FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Post</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImagePath)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImagePath, null, "imgPath")
+            @Html.ValidationMessageFor(model => model.ImagePath)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Text, null, "text")
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "PostsByThread", new { threadId = Model.ThreadId }, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

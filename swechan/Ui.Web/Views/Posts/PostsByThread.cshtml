@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Ui.Web.Models.PostViewModel>
+
+@{
+    ViewBag.Title = "PostsByThread";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+ @if (Request.IsAuthenticated)
+        {
+    <div class="new-button">
+        @Html.ActionLink("Create Post", "Create", 
+        new { threadId = ViewContext.RouteData.Values["threadId"] }, 
+        new { @class="btn btn-primary" })
+    </div>
+ }
+<ul class="entry">
+@foreach (var post in Model)
+{
+    <li>
+        <p class="date">@post.CeatedAt.ToString("yyyy-MM-dd HH:mm")</p>
+        <p class="user">@post.User.FirstName</p>
+        @if(@post.ImagePath != null) {
+            <p class="image"><a href="@post.ImagePath"><img width="200" src="@post.ImagePath"/></a></p>
+        }
+        <p>@post.Text</p>
+        <p style="clear:both"></p>
+    </li>
+}
+</ul>
+
+
+
+<div>
+    @Html.ActionLink("Back to Thread List", "Index", "Threads")
+</div>

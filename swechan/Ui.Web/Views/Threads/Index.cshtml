@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Ui.Web.Models.ThreadViewModel>
+
+@{
+    ViewBag.Title = "Threads";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Threads</h2>
+
+<div class="new-button">
+    @Html.ActionLink("Create Thread", "Create", null, new { @class = "btn btn-primary"})
+</div>
+
+<ul class="entry">
+@foreach (var thread in Model)
+{
+    <li>@Html.ActionLink(thread.Title, "PostsByThread", "Posts", new { threadId = thread.ThreadId }, new { })</li>
+}
+</ul>
+

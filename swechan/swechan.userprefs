@@ -1,0 +1,48 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="IntegrationTests/Repositories/PostRepositoryTest.cs">
+    <Files>
+      <File FileName="IntegrationTests/App.config" Line="1" Column="1" />
+      <File FileName="IntegrationTests/packages.config" Line="6" Column="12" />
+      <File FileName="Dal/packages.config" Line="1" Column="1" />
+      <File FileName="IntegrationTests/Repositories/PostRepositoryTest.cs" Line="18" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name=".nuget" expanded="True" />
+          <Node name="Dal" expanded="True" />
+          <Node name="Domain" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="IntegrationTests" expanded="True">
+            <Node name="Repositories" expanded="True">
+              <Node name="PostRepositoryTest.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True">
+          <Node name="IntegrationTests" expanded="True">
+            <Node name="IntegrationTests" expanded="True">
+              <Node name="PostRepositoryTest" expanded="True">
+                <Node name="TestCreatePost" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>SWEChan - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap/css/bootstrap.css")
+    @Styles.Render("~/Content/bootstrap/css/bootstrap-theme.min.css")
+    @Scripts.Render("~/Scripts/jquery-2.0.3.min.js")
+    @Scripts.Render("~/Scripts/jquery-ui-1.8.24.min.js")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/typeahead.js")
+    @Scripts.Render("~/Scripts/main.js")
+</head>
+<body>
+    <nav>
+        <ul class="nav nav-tabs">
+          <li>@Html.ActionLink("Threads", "Index", "Threads")</li>
+        
+        @if (Request.IsAuthenticated)
+        {
+            <li>@Html.ActionLink("User Management", "Usermanagement", "User")</li>
+            <li>@Html.ActionLink("Log Out " + User.Identity.Name, "Logout", "User")</li>
+        }
+        else
+        { 
+            <li>@Html.ActionLink("Forget Password", "ForgetPassword", "User")</li>
+            <li>@Html.ActionLink("Register", "Registration", "User")</li>
+            <li>@Html.ActionLink("Log In", "LogIn", "User")</li>
+        }
+        </ul>
+    </nav>
+    
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

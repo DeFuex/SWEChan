@@ -1,0 +1,36 @@
+﻿@model Model.Thread
+
+@{
+    ViewBag.Title = string.Format("Edit Thread '{0}'", Model.Title);
+}
+
+<h2>@Model.Title - Edit</h2>
+
+@using (Html.BeginForm("EditComplete", "Threads", new { threadid = Model.ThreadId }, FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Thread</legend>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title, null, "title")
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

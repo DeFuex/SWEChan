@@ -1,0 +1,38 @@
+﻿@model Ui.Web.Models.PostViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Posts", new { threadId = ViewContext.RouteData.Values["threadId"] }, FormMethod.Post,
+new { @encType = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    // FIXME: use proper viewmodel to bind image to
+    <label for="imgPath">Image</label>
+    <p class="alert alert-danger">@Html.ValidationMessageFor(model => model.ImagePath)</p>
+    <p>@Html.EditorFor(model => model.ImagePath, string.Empty, new { @class = "form-control" })</p>
+    
+    <label for="text">Text</label>
+    <p class="alert alert-danger">@Html.ValidationMessageFor(model => model.Text)</p>
+    <p>@Html.EditorFor(model => model.Text, string.Empty, new { @class = "form-control" })</p>
+    
+    @Html.HiddenFor(model => model.ThreadId)
+
+    <p>
+        <input type="submit" value="Create" class="btn btn-default" />
+    </p>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to other Posts List", "PostsByThread", new { threadId = ViewContext.RouteData.Values["threadId"] })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

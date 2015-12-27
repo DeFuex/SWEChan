@@ -1,0 +1,31 @@
+﻿@model Ui.Web.Models.ThreadViewModel
+
+@{
+    
+    ViewBag.Title = "Create";
+}
+
+<h2>Create a new thread</h2>
+
+@using (Html.BeginForm("Create", "Threads", new { @class = "form-group" }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <p class="alert alert-danger">@Html.ValidationMessageFor(model => model.Title)</p>
+    
+    <label for="imgPath">Title</label>
+    <p>@Html.EditorFor(model => model.Title, string.Empty, new { @class = "form-control" })
+        </p>
+    <p>
+        <input type="submit" value="Create" class="btn btn-default" />
+    </p>
+}
+
+<div>
+    @Html.ActionLink("Back to Thread List", "Index", "Threads")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

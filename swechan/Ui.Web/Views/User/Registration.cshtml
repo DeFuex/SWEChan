@@ -1,0 +1,44 @@
+﻿@model Ui.Web.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true, "Create user failed, check your fields.", new { @class = "alert alert-danger" });
+
+    <div class="form-group">
+        @Html.ValidationMessageFor(u => u.FirstName)
+        @Html.LabelFor(u => u.FirstName)
+        @Html.TextBoxFor(u => u.FirstName, null, new {@class = "form-control"})
+
+        @Html.LabelFor(u => u.LastName)
+        @Html.TextBoxFor(u => u.LastName, null, new {@class = "form-control"})
+        @Html.ValidationMessageFor(u => u.LastName)
+
+        @Html.LabelFor(u => u.Email)
+        @Html.TextBoxFor(u => u.Email, null, new {@class = "form-control"})
+        @Html.ValidationMessageFor(u => u.Email)
+
+
+        @Html.LabelFor(u => u.Password)
+        @Html.PasswordFor(u => u.Password, new {@class = "form-control"})
+        @Html.ValidationMessageFor(u => u.Password)
+       
+        <label for="Admin">Admin</label>
+        @Html.CheckBoxFor(u => u.Admin)
+
+
+        <p>
+            <input type="submit" value="Create User" class="btn btn-default" />
+        </p>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

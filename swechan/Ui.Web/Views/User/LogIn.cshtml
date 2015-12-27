@@ -1,0 +1,28 @@
+﻿@model Ui.Web.Models.LoginModel
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Login</h1>
+
+@using (Html.BeginForm()) {
+  
+    @Html.ValidationSummary(true, "Login failed. Please check your login details.");
+    <div class="form-group">
+        <p>@Html.LabelFor(u => u.Email)
+            @Html.TextBoxFor(u => u.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(u => u.Email)
+        </p>
+
+        <p>@Html.LabelFor(u => u.Password)
+            @Html.PasswordFor(u => u.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(u => u.Password)
+        </p>
+
+        <p><input type="submit" value="Log In" class="btn btn-default"/></p>
+
+    </div>
+
+}
